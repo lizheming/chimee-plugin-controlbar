@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Chimee Plugin Controlbar Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chimee-container">
+    <video tabindex="-1"></video>
+  </div>
+  <script src="https://lib.baomitu.com/chimee/2.0.0-alpha.3/index.browser.js"></script>
+  <script src="https://lib.baomitu.com/react/16.9.0/umd/react.production.min.js"></script>
+  <script src="https://lib.baomitu.com/react-dom/16.9.0-alpha.0/umd/react-dom.production.min.js"></script>
+  <script src="../dist/chimee-plugin-controlbar.umd.min.js"></script>
+  <script>
+    Chimee.install(ChimeePluginControlbar);
+    var player = new Chimee({
+      width: 900,
+      height: 492,
+      wrapper: '.chimee-container',
+      src: location.protocol + '//chimee.org/vod/1.mp4',
+      isLive: false,
+      box: 'native',
+      autoplay: false,
+      controls: false,
+      plugin: [{
+        name: ChimeePluginControlbar.name,
+        onNext() {
+          console.log('next');
+        }
+      }]
+    });
+  </script>
+</body>
+
+</html>
