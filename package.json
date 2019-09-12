@@ -1,0 +1,50 @@
+{
+  "name": "@lizheming/chimee-plugin-controlbar",
+  "version": "0.1.0",
+  "description": "chimee player controlbar plugin",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack --progress --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizheming/chimee-plugin-controlbar.git"
+  },
+  "keywords": [
+    "chimee",
+    "player",
+    "video",
+    "controlbar",
+    "plugin"
+  ],
+  "author": "lizheming <i@imnerd.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lizheming/chimee-plugin-controlbar/issues"
+  },
+  "homepage": "https://github.com/lizheming/chimee-plugin-controlbar#readme",
+  "peerDependencies": {
+    "chimee": "^0.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "classnames": "^2.2.6",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  },
+  "dependencies": {
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0"
+  }
+}
