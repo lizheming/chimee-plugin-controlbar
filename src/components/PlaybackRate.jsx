@@ -39,6 +39,7 @@ export default function () {
         <ul className="chimee-controlbar__playback-rate__list">
           {RATES.map(({ value, text }) => (
             <li
+              key={value}
               onClick={() => select(value)}
               className={cls({ active: value === rate || (rate === null && value === 1) })}
             >{text}</li>

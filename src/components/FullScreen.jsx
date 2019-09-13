@@ -18,7 +18,7 @@ const Button = {
         onClick={toggleFullScreen}
       >
         <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-          <g fill-rule="nonzero" stroke="#FFF" stroke-linecap="round" stroke-width="2">
+          <g fillRule="nonzero" stroke="#FFF" strokeLinecap="round" strokeWidth="2">
             <path d="M5 1H1v4M2 2l4 4" />
             <path d="M13 17h4v-4M16 16l-4-4" />
           </g>
@@ -34,7 +34,7 @@ const Button = {
         onClick={toggleFullScreen}
       >
         <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-          <g fill-rule="nonzero" stroke="#FFF" stroke-linecap="round" stroke-width="2">
+          <g fillRule="nonzero" stroke="#FFF" strokeLinecap="round" strokeWidth="2">
             <path d="M16 12h-4v4M13 13l4 4" />
             <path d="M2 6h4V2M5 5L1 1" />
           </g>
