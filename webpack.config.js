@@ -99,11 +99,11 @@ buildWithoutStyle.module.rules[1] = {
 };
 
 // 无 React 无内联样式
-const buildWithoutReactAndStyle = merge({
+const buildWithoutReactAndStyle = merge({}, buildWithoutReact, buildWithoutStyle, {
   output: {
     filename: `${basename}.no-react-and-style.umd.min.js`
   }
-}, buildWithoutReact, buildWithoutStyle);
+});
 
 module.exports = [
   buildNormal,
