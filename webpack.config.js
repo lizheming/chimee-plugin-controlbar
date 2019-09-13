@@ -15,7 +15,7 @@ var reactDOMExternal = {
   amd: 'react-dom'
 };
 
-const basename = 'chimee-controlbar';
+const basename = 'chimee-plugin-controlbar';
 const common = {
   mode: 'production',
   // devtool: 'source-map',
