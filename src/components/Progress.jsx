@@ -23,26 +23,26 @@ function useBuffer(ctx) {
   return buffer / ctx.duration || 0;
 }
 
-function useDragX(dom) {
+function useDragX(ref) {
   const ctx = useContext(Context);
   const [percent, upPer] = useState(0);
   const [active, upStatus] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
 
   const draging = useCallback(e => {
-    const { width, left } = dom.getBoundingClientRect();
+    const { width, left } = ref.current.getBoundingClientRect();
     upPer((e.pageX - left) / width);
-  }, [dom]);
+  }, [ref]);
 
   const dragEnd = useCallback(e => {
-    const { width, left } = dom.getBoundingClientRect();
+    const { width, left } = ref.current.getBoundingClientRect();
     ctx.currentTime = (e.pageX - left) / width * ctx.duration;
     upPer(0);
     upStatus(false);
     window.removeEventListener('mousemove', draging);
     window.removeEventListener('mouseup', dragEnd);
     window.removeEventListener('contextmenu', dragEnd);
-  }, [dom]);
+  }, [ref]);
 
   const onTimeUpdate = useCallback(() => setCurrentTime(ctx.currentTime), []);
   useEffect(() => ctx.$on('timeupdate', onTimeUpdate), []);
@@ -56,7 +56,7 @@ function useDragX(dom) {
         return;
       }
 
-      if (!dom) {
+      if (!ref.current) {
         return;
       }
 
@@ -77,7 +77,7 @@ export default function () {
     active,
     currentTime,
     onMouseDown
-  } = useDragX(wrap.current);
+  } = useDragX(wrap);
 
   const timePer = currentTime ? currentTime / ctx.duration : 0;
   const offset = (timePer * 100) + '%';
