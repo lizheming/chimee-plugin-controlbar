@@ -1,4 +1,6 @@
 const path = require('path');
+const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 var reactExternal = {
   root: 'React',
@@ -13,20 +15,16 @@ var reactDOMExternal = {
   amd: 'react-dom'
 };
 
-module.exports = {
+const basename = 'chimee-controlbar';
+const common = {
   mode: 'production',
-  devtool: 'source-map',
+  // devtool: 'source-map',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'chimee-plugin-controlbar.umd.min.js',
     library: 'ChimeePluginControlbar',
     libraryTarget: 'umd',
     libraryExport: 'default'
-  },
-  externals: {
-    'react': reactExternal,
-    'react-dom': reactDOMExternal
   },
   resolve: {
     alias: {
@@ -56,5 +54,60 @@ module.exports = {
         ]
       }
     ]
+  },
+  plugins: []
+}
+
+// 有 React 有内联样式
+const buildNormal = merge({
+  output: {
+    filename: `${basename}.umd.min.js`
   }
+}, common);
+
+// 无 React 有内联样式
+const buildWithoutReact = merge({
+  output: {
+    filename: `${basename}.no-react.umd.min.js`
+  },
+  externals: {
+    'react': reactExternal,
+    'react-dom': reactDOMExternal
+  }
+}, common);
+
+// 有 React 无内联样式
+const buildWithoutStyle = merge({
+  output: {
+    filename: `${basename}.no-style.umd.min.js`
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: `${basename}.css`
+    })
+  ]
+}, common);
+buildWithoutStyle.module.rules[1] = {
+  test: /\.css|less/,
+  use: [
+    {
+      loader: MiniCssExtractPlugin.loader
+    },
+    'css-loader',
+    'less-loader'
+  ]
 };
+
+// 无 React 无内联样式
+const buildWithoutReactAndStyle = merge({
+  output: {
+    filename: `${basename}.no-react-and-style.umd.min.js`
+  }
+}, buildWithoutReact, buildWithoutStyle);
+
+module.exports = [
+  buildNormal,
+  buildWithoutReact,
+  buildWithoutStyle,
+  buildWithoutReactAndStyle
+];
