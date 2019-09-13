@@ -1,6 +1,6 @@
 {
   "name": "@lizheming/chimee-plugin-controlbar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "chimee player controlbar plugin",
   "main": "src/index.js",
   "browser": "dist/chimee-plugin-controlbar.umd.min.js",
