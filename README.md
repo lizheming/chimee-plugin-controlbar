@@ -1,6 +1,6 @@
 # chimee-plugin-controlbar
 
-Plugin take controlbar to Chimee video player. https://lizheming.github.io/chimee-plugin-controlbar
+Plugin take controlbar to Chimee video player. https://lizheming.github.io/chimee-plugin-controlbar/demo
 
 ## Install
 
