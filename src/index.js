@@ -4,14 +4,37 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Context from './Context';
 
+import FullScreen from './components/FullScreen';
+import Next from './components/Next';
+import Play from './components/Play';
+import PlaybackRate from './components/PlaybackRate';
+import Progress from './components/Progress';
+import Time from './components/Time';
+import Volume from './components/Volume';
+
 export default {
+  Context,
+  Plugins: {
+    FullScreen,
+    Next,
+    Play,
+    PlaybackRate,
+    Progress,
+    Time,
+    Volume
+  },
   name: 'controlbar',
   inner: true,
   el: `<div class="chimee-controlbar"></div>`,
   create() {
+    let Main = App;
+    if (typeof this.$config.render === 'function') {
+      Main = this.$config.render;
+    }
+
     ReactDOM.render(
       <Context.Provider value={this}>
-        <App />
+        <Main />
       </Context.Provider>,
       this.$dom
     );
