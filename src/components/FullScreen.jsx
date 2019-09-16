@@ -23,6 +23,7 @@ const Button = {
             <path d="M13 17h4v-4M16 16l-4-4" />
           </g>
         </svg>
+        <div className="chimee-controlbar__button__tip">全屏</div>
       </div>
     );
   },
@@ -39,6 +40,7 @@ const Button = {
             <path d="M2 6h4V2M5 5L1 1" />
           </g>
         </svg>
+        <div className="chimee-controlbar__button__tip" style={{ width: 80, marginLeft: -31 }}>退出全屏</div>
       </div>
     );
   }

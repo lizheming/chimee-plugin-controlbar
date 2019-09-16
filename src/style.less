@@ -116,6 +116,25 @@ video:focus {
     opacity: 0.95;
     &:hover {
       opacity: 1;
+
+      .chimee-controlbar__button__tip {
+        display: block;
+      }
+    }
+
+    &__tip {
+      display: none;
+      font-size: 12px;
+      color: #FFF;
+      line-height: 1em;
+      font-weight: 400;
+      padding: 6px 8px;
+      background: rgba(0,0,0,0.8);
+      border-radius: 2px;
+      position: absolute;
+      width: 40px;
+      top: -28px;
+      margin-left: -11px;
     }
   }
   &__play--time {
